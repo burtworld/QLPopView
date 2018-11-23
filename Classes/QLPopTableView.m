@@ -39,7 +39,7 @@
             }
         }
     }
-    CGFloat width = [_item.itemName getWidthWithFont:[UIFont systemFontOfSize:14.0f] andHeight:self.rowHeight];
+    CGFloat width = [_item.itemName boundingRectWithSize:CGSizeMake(self.rowHeight, CGFLOAT_MAX) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} context:nil].size.width;
     // 加上图片距离与边距
     if (_item.itemImage != nil) {
         width   += 74;

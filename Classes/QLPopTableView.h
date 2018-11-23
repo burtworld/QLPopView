@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Paramita. All rights reserved.
 //
 
-#import <QLCommonUtils/QLCommonUtils.h>
+#import "QLPopView.h"
 #import "QLPopViewItemProtocol.h"
 @interface QLPopTableView : QLPopView
 @property (nonatomic,copy) void(^selectBlock)(NSInteger index);

@@ -7,11 +7,11 @@
 //
 
 #import "QLPopView.h"
-#import "QLHJAPPManager.h"
-
-#import "NSString+QLFunctions.h"
-#import "UIColor+QLColor.h"
-#import "Masonry.h"
+//#import "QLHJAPPManager.h"
+//
+//#import "NSString+QLFunctions.h"
+//#import "UIColor+QLColor.h"
+//#import "Masonry.h"
 
 
 #define DEGREES_TO_RADIANS(degrees) ((3.14159265359 * degrees) / 180)
@@ -142,7 +142,8 @@
     self.layer.anchorPoint = anchorPoint;
     self.layer.position = CGPointMake(
                                       self.layer.position.x + (anchorPoint.x - lastAnchor.x) * self.layer.bounds.size.width,
-                                      self.layer.position.y + (anchorPoint.y - lastAnchor.y) * self.layer.bounds.size.height);
+                                      self.layer.position.y + (anchorPoint.y - lastAnchor.y) * self.layer.bounds.size.height
+                                      );
     self.frame = frame;
 }
 
