@@ -10,5 +10,5 @@
 #import "QLPopViewItemProtocol.h"
 //! 可直接使用的模型类
 @interface QLPopItemModel : NSObject<QLPopViewItemProtocol>
-
++ (instancetype)itemWithItemName:(NSString *)itemName itemImage:(UIImage *)itemImage;
 @end

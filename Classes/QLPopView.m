@@ -7,11 +7,7 @@
 //
 
 #import "QLPopView.h"
-//#import "QLHJAPPManager.h"
-//
-//#import "NSString+QLFunctions.h"
-//#import "UIColor+QLColor.h"
-//#import "Masonry.h"
+
 
 
 #define DEGREES_TO_RADIANS(degrees) ((3.14159265359 * degrees) / 180)

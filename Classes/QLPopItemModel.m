@@ -11,4 +11,11 @@
 @implementation QLPopItemModel
 @synthesize itemName = _itemName;
 @synthesize itemImage = _itemImage;
+
++ (instancetype)itemWithItemName:(NSString *)itemName itemImage:(UIImage *)itemImage {
+    QLPopItemModel *model = [QLPopItemModel new];
+    model.itemName = itemName;
+    model.itemImage = itemImage;
+    return model;
+}
 @end

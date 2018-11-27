@@ -8,6 +8,8 @@
 
 #import "QLPopView.h"
 #import "QLPopViewItemProtocol.h"
+#import "QLPopItemModel.h"
+
 @interface QLPopTableView : QLPopView
 @property (nonatomic,copy) void(^selectBlock)(NSInteger index);
 @property (retain, nonatomic) NSArray<id<QLPopViewItemProtocol>>*itemArray;
