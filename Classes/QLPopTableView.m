@@ -51,13 +51,17 @@
 }
 
 - (void)showAtView:(UIView *)atView rowHeight:(CGFloat)rowHeight items:(NSArray<id<QLPopViewItemProtocol>>*)itemArray selectBlock:(void(^)(NSInteger index))block {
+    [self showAtView:atView containerView:[UIApplication sharedApplication].keyWindow.rootViewController.view rowHeight:rowHeight items:itemArray selectBlock:block];
+}
+
+- (void)showAtView:(UIView *)atView containerView:(UIView *)containerView rowHeight:(CGFloat)rowHeight items:(NSArray<id<QLPopViewItemProtocol>>*)itemArray selectBlock:(void(^)(NSInteger index))block {
     self.itemArray = itemArray;
     self.selectBlock = block;
     self.rowHeight = rowHeight;
     CGFloat maxWidth = [self calculatorMaxWidth];
     CGFloat height = _itemArray.count *rowHeight;
     self.tableView.frame = CGRectMake(0, 0, maxWidth, height);
-    [self showAtView:atView contentView:self.tableView];
+    [self showAtView:atView contentView:self.tableView containerView:containerView];
 }
 
 - (void)showAtPoint:(CGPoint )point rowHeight:(CGFloat)rowHeight items:(NSArray<id<QLPopViewItemProtocol>>*)itemArray selectBlock:(void(^)(NSInteger index))block {
@@ -109,7 +113,7 @@
     if (item.itemImage == nil) {
         if (!CGRectEqualToRect(imgView.frame, CGRectZero)) {
             imgView.frame = CGRectZero;
-            lab.frame = CGRectMake(0, 0, self.frame.size.width, self.rowHeight);
+            lab.frame = CGRectMake(0, 0, self.frame.size.width - 10, self.rowHeight);
         }
     }else{
         if (CGRectEqualToRect(imgView.frame, CGRectZero)) {
@@ -143,7 +147,7 @@
         _tableView.layer.cornerRadius = self.layer.cornerRadius;
         _tableView.layer.masksToBounds = YES;
         _tableView.rowHeight = 44.0f;
-
+   
     }
     return _tableView;
 }

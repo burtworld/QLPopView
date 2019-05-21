@@ -12,4 +12,6 @@
 @protocol QLPopViewItemProtocol <NSObject>
 @property (nonatomic, retain) UIImage *itemImage;
 @property (nonatomic, retain) NSString *itemName;
+
+@property (nonatomic, retain) id context;
 @end

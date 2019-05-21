@@ -256,7 +256,7 @@
 
 - (void)showAtView:(UIView *)atView contentView:(UIView *)contentView containerView:(UIView *)containerView {
     CGFloat contentViewHeight = CGRectGetHeight(contentView.bounds);
-    CGRect atViewFrame = [containerView convertRect:atView.frame toView:containerView];
+    CGRect atViewFrame = [atView convertRect:atView.frame toView:containerView];
     
     /// 判断弹出方向
     BOOL upCanContain = CGRectGetMinY(atViewFrame) >= contentViewHeight;

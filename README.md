@@ -1,4 +1,4 @@
-# QLQRCodeUtils
+# QLPopView
 
 [![CI Status](https://img.shields.io/travis/burtworld/QLRefreshTableView.svg?style=flat)](https://travis-ci.org/burtworld/QLRefreshTableView)
 [![Version](https://img.shields.io/cocoapods/v/QLRefreshTableView.svg?style=flat)](https://cocoapods.org/pods/QLRefreshTableView)
