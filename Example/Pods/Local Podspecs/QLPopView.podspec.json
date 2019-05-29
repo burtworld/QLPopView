@@ -1,22 +1,22 @@
 {
   "name": "QLPopView",
-  "version": "0.1.0",
-  "summary": "A short description of QLPopView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Paramita/QLPopView",
-  "license": {
-    "type": "MIT",
-    "file": "LICENSE"
-  },
+  "version": "0.0.5",
+  "summary": "a popview with custom container,you can use it pop a table,a lable,a buttom or others",
+  "homepage": "https://github.com/burtworld/QLPopView",
+  "license": "MIT",
   "authors": {
-    "Paramita": "baqkoo007@aliyun.com"
-  },
-  "source": {
-    "git": "https://github.com/Paramita/QLPopView.git",
-    "tag": "0.1.0"
+    "paramita": "baqkoo007@aliyun.com"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "QLPopView/Classes/**/*"
+  "source": {
+    "git": "https://github.com/burtworld/QLPopView.git",
+    "tag": "0.0.5"
+  },
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m}"
+  ],
+  "requires_arc": true
 }
