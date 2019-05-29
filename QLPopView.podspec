@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "QLPopView"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "a popview with custom container,you can use it pop a table,a lable,a buttom or others"
 
   # This description is used to generate tags and improve search results.
