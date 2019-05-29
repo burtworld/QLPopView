@@ -60,12 +60,12 @@
 		6E04882E8886297A3112F5E2 /* Pods_QLPopView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QLPopView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		88E262E693D9BD135A4D5B3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		89C59D122F3112C99A74080C /* QLPopView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = QLPopView.podspec; path = ../QLPopView.podspec; sourceTree = "<group>"; };
+		88E262E693D9BD135A4D5B3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		89C59D122F3112C99A74080C /* QLPopView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = QLPopView.podspec; path = ../QLPopView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AB81D53D6AB46411624228DA /* Pods-QLPopView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QLPopView_Tests.release.xcconfig"; path = "Target Support Files/Pods-QLPopView_Tests/Pods-QLPopView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		ACC762A946D2351DEF60C13C /* Pods_QLPopView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QLPopView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA69B7B1CE238CFF05A14B84 /* Pods-QLPopView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QLPopView_Example.debug.xcconfig"; path = "Target Support Files/Pods-QLPopView_Example/Pods-QLPopView_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		FC4154DCB6E4171654C27412 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		FC4154DCB6E4171654C27412 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		FCD98A21E8B0DC90D8D298D2 /* Pods-QLPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QLPopView_Example.release.xcconfig"; path = "Target Support Files/Pods-QLPopView_Example/Pods-QLPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				48FC665BD6CDAD419ED7C2B7 /* Pods-QLPopView_Tests.debug.xcconfig */,
 				AB81D53D6AB46411624228DA /* Pods-QLPopView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

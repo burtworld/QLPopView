@@ -1,0 +1,16 @@
+PODS:
+  - QLPopView (0.1.0)
+
+DEPENDENCIES:
+  - QLPopView (from `../`)
+
+EXTERNAL SOURCES:
+  QLPopView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  QLPopView: f065fe581982c1b83af5769f65476908250b0cc1
+
+PODFILE CHECKSUM: e18c96e1696b1c7aa927ad11e39cc458af7ba119
+
+COCOAPODS: 1.6.1
