@@ -10,6 +10,10 @@
 #endif
 #endif
 
+#import "QLPopItemModel.h"
+#import "QLPopTableView.h"
+#import "QLPopView.h"
+#import "QLPopViewItemProtocol.h"
 
 FOUNDATION_EXPORT double QLPopViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char QLPopViewVersionString[];
