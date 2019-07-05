@@ -1,0 +1,6 @@
+framework module QLPopView {
+  umbrella header "QLPopView.h"
+
+  export *
+  module * { export * }
+}
