@@ -42,16 +42,16 @@
     CGFloat width = [_item.itemName boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, self.rowHeight) options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} context:nil].size.width;
     // 加上图片距离与边距
     if (_item.itemImage != nil) {
-        width   += 74;
+        width   += 59;
     }else{
-        width += 40;
+        width += 25;
     }
     
     return width;
 }
 
 - (void)showAtView:(UIView *)atView rowHeight:(CGFloat)rowHeight items:(NSArray<id<QLPopViewItemProtocol>>*)itemArray selectBlock:(void(^)(NSInteger index))block {
-    [self showAtView:atView containerView:[UIApplication sharedApplication].keyWindow.rootViewController.view rowHeight:rowHeight items:itemArray selectBlock:block];
+    [self showAtView:atView containerView:[UIApplication sharedApplication].keyWindow rowHeight:rowHeight items:itemArray selectBlock:block];
 }
 
 - (void)showAtView:(UIView *)atView containerView:(UIView *)containerView rowHeight:(CGFloat)rowHeight items:(NSArray<id<QLPopViewItemProtocol>>*)itemArray selectBlock:(void(^)(NSInteger index))block {
@@ -90,12 +90,12 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:QLPopViewCellIdentify];
         cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
-        
-        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 5, self.rowHeight - 10, self.rowHeight - 10)];
+        CGFloat width = (self.rowHeight - 10) > 26 ? 26 : (self.rowHeight - 10);
+        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(5, (self.rowHeight - width)/2, width , width)];
         imgView.tag = 10001;
         [cell.contentView addSubview:imgView];
         
-        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(imgView.frame) + 10, 0, self.frame.size.width - CGRectGetMaxX(imgView.frame) - 30, self.rowHeight)];
+        UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(imgView.frame) + 5, 0, self.frame.size.width - CGRectGetMaxX(imgView.frame) - 15, self.rowHeight)];
         lab.font = [UIFont systemFontOfSize:14.0f];
         lab.textColor = [UIColor colorWithRed:0.13 green:0.13 blue:0.13 alpha:1.0F];
         lab.tag = 10002;
@@ -117,8 +117,10 @@
         }
     }else{
         if (CGRectEqualToRect(imgView.frame, CGRectZero)) {
-            imgView.frame = CGRectMake(10, 5, self.rowHeight - 10, self.rowHeight - 10);
-            lab.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 10, 0, self.frame.size.width - CGRectGetMaxX(imgView.frame) - 30, self.rowHeight);
+            CGFloat width = (self.rowHeight - 10) > 26 ? 26 : (self.rowHeight - 10);
+            
+            imgView.frame = CGRectMake(5, (self.rowHeight - width)/2, width , width);
+            lab.frame = CGRectMake(CGRectGetMaxX(imgView.frame) + 5, 0, self.frame.size.width - CGRectGetMaxX(imgView.frame) - 15, self.rowHeight);
         }
     }
     return cell;
@@ -147,6 +149,7 @@
         _tableView.layer.cornerRadius = self.layer.cornerRadius;
         _tableView.layer.masksToBounds = YES;
         _tableView.rowHeight = 44.0f;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
    
     }
     return _tableView;

@@ -112,11 +112,19 @@
         sideEdge = self.sideEdge;
     }
     CGFloat outerSideEdge = CGRectGetMaxX(frame) - CGRectGetWidth(_containerView.bounds);
+    
+    
     if (outerSideEdge > 0) {
         frame.origin.x -= (outerSideEdge + sideEdge);
+        if (@available(iOS 11.0, *)) {
+            frame.origin.x -= [UIApplication sharedApplication].keyWindow.safeAreaInsets.right;
+        }
     } else {
         if (CGRectGetMinX(frame) < 0) {
             frame.origin.x += ABS(CGRectGetMinX(frame)) + sideEdge;
+        }
+        if (@available(iOS 11.0, *)) {
+            frame.origin.x += [UIApplication sharedApplication].keyWindow.safeAreaInsets.left;
         }
     }
     
@@ -256,16 +264,16 @@
 
 - (void)showAtView:(UIView *)atView contentView:(UIView *)contentView containerView:(UIView *)containerView {
     CGFloat contentViewHeight = CGRectGetHeight(contentView.bounds);
-    CGRect atViewFrame = [atView convertRect:atView.frame toView:containerView];
+    CGRect atViewFrame = [atView.superview convertRect:atView.frame toView:containerView];
     
     /// 判断弹出方向
     BOOL upCanContain = CGRectGetMinY(atViewFrame) >= contentViewHeight;
     BOOL downCanContain = (CGRectGetHeight(containerView.bounds) -  CGRectGetMaxY(atViewFrame)) >= contentViewHeight;
-    NSAssert((upCanContain || downCanContain),
-             @"QLPopover no place for the popover show, check atView frame %@ "
-             @"check contentView bounds %@ and containerView's bounds %@",
-             NSStringFromCGRect(atViewFrame), NSStringFromCGRect(contentView.bounds),
-             NSStringFromCGRect(containerView.bounds));
+//    NSAssert((upCanContain || downCanContain),
+//             @"QLPopover no place for the popover show, check atView frame %@ "
+//             @"check contentView bounds %@ and containerView's bounds %@",
+//             NSStringFromCGRect(atViewFrame), NSStringFromCGRect(contentView.bounds),
+//             NSStringFromCGRect(containerView.bounds));
     CGPoint atPoint = CGPointMake(CGRectGetMidX(atViewFrame), 0);
     QLPopDirection popDirction;
     if (upCanContain) {
@@ -291,6 +299,34 @@
             popDirction = QLPop_Direction_Down;
             atPoint.y = CGRectGetMaxY(atViewFrame);
         }
+    }
+    if (!upCanContain && !downCanContain) {
+        // 超屏，压缩
+        // 判断方向
+        CGFloat remainHeight = 0;
+        if (CGRectGetMinY(atViewFrame) > CGRectGetMidY(contentView.frame)) {
+            popDirction = QLPop_Direction_Up;
+            atPoint.y = CGRectGetMinY(atViewFrame);
+            remainHeight = CGRectGetMinY(atViewFrame) - self.arrowSize.height - self.contentInsets.top - self.contentInsets.bottom;
+        }else{
+            popDirction = QLPop_Direction_Down;
+            atPoint.y = CGRectGetMaxY(atViewFrame);
+            remainHeight = CGRectGetHeight(containerView.frame) - CGRectGetMinY(atViewFrame) - self.arrowSize.height - self.contentInsets.top - self.contentInsets.bottom;
+        }
+        CGRect contentViewRect = contentView.frame;
+        if ([contentView isKindOfClass:[UITableView class]]) {
+            contentViewRect.size.height = remainHeight;
+            UITableView *tableview = (UITableView *)contentView;
+            tableview.scrollEnabled = YES;
+            tableview.bounces = NO;
+            tableview.showsHorizontalScrollIndicator = YES;
+        }else{
+            // 按比例缩小
+            CGFloat width = contentViewRect.size.width/contentViewRect.size.height * remainHeight;
+            contentViewRect.size.height = remainHeight;
+            contentViewRect.size.width = width;
+        }
+        contentView.frame = contentViewRect;
     }
     [self showAtPoint:atPoint dirction:popDirction contentView:contentView containerView:containerView];
 }
